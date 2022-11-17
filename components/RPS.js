@@ -13,40 +13,43 @@ const RPS = ({ show }) => {
   const ref2 = useRef(null);
 
   const handleClick = (index) => {
-    const random = Math.floor(Math.random() * 3);
-    setComputer(random);
-    setPlayer(index);
-    if (
-      (random === 0 && index === 2) ||
-      (random === 1 && index === 0) ||
-      (random === 2 && index === 1)
-    ) {
-      setComputerScore((prev) => prev + 1);
-    }
-    if (
-      (index === 0 && random === 2) ||
-      (index === 1 && random === 0) ||
-      (index === 2 && random === 1)
-    ) {
-      setPlayerScore((prev) => prev + 1);
+    if (round) {
+      const random = Math.floor(Math.random() * 3);
+      setComputer(random);
+      setPlayer(index);
+      if (
+        (random === 0 && index === 2) ||
+        (random === 1 && index === 0) ||
+        (random === 2 && index === 1)
+      ) {
+        setComputerScore((prev) => prev + 1);
+      }
+      if (
+        (index === 0 && random === 2) ||
+        (index === 1 && random === 0) ||
+        (index === 2 && random === 1)
+      ) {
+        setPlayerScore((prev) => prev + 1);
+      }
     }
   };
 
   const handleRef = () => {
-    setTimeout(() => {
-      let val1 = ref1.current.textContent.substring(0, 1) * 1;
-      let val2 = ref2.current.textContent.substring(0, 1) * 1;
-      console.log(val1, val2);
-      if (val1 + val2 === round * 1) {
-        if (val1 > val2) toast.error(`You Lose !! Score ${val2}/${round}`);
-        if (val1 < val2) toast.success(`You Won !! Score ${val2}/${round}`);
-        if (val1 === val2) toast.info(`Match Tie !!`);
-        setComputerScore(0);
-        setPlayerScore(0);
-        setComputer(null);
-        setPlayer(null);
-      }
-    }, 100);
+    if (round) {
+      setTimeout(() => {
+        let val1 = ref1.current.textContent.substring(0, 1) * 1;
+        let val2 = ref2.current.textContent.substring(0, 1) * 1;
+        if (val1 + val2 === round * 1) {
+          if (val1 > val2) toast.error(`You Lose !! Score ${val2}/${round}`);
+          if (val1 < val2) toast.success(`You Won !! Score ${val2}/${round}`);
+          if (val1 === val2) toast.info(`Match Tie !!`);
+          setComputerScore(0);
+          setPlayerScore(0);
+          setComputer(null);
+          setPlayer(null);
+        }
+      }, 100);
+    }
   };
 
   return (

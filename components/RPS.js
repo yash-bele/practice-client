@@ -60,7 +60,7 @@ const RPS = ({ show }) => {
           value={round}
           onChange={(e) => setRound(e.target.value)}
           type='number'
-          placeholder='Input max sum...'
+          placeholder='Number of rounds...'
           className='outline-none text-sm py-2 px-3 rounded-md bg-white/25'
         />
       </form>

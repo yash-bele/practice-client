@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-const url = 'http://localhost:3001/api/data';
+const url = 'https://practice-server-yash.vercel.app/api';
 
 const Todo = ({ show }) => {
   const [list, setList] = useState([]);

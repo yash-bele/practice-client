@@ -18,10 +18,10 @@ const Home = () => {
         />
       </Head>
       <main className='absolute w-full h-full bg-black text-white flex flex-col'>
-        <nav className='absolute mt-10 w-full flex justify-center font-bold'>
+        <nav className='absolute mt-10 w-full text-sm flex justify-center font-bold'>
           <button
             onClick={() => setShow(0)}
-            className={`btn mr-3 px-4 py-2 rounded-md tracking-wider font-bold ${
+            className={`btn px-4 py-2 rounded-md tracking-wider font-bold ${
               show === 0 && 'bg-white/25'
             }`}
           >
@@ -29,7 +29,7 @@ const Home = () => {
           </button>
           <button
             onClick={() => setShow(1)}
-            className={`btn mr-3 px-4 py-2 rounded-md tracking-wider font-bold ${
+            className={`btn px-4 py-2 rounded-md tracking-wide font-bold ${
               show === 1 && 'bg-white/25'
             }`}
           >
@@ -37,7 +37,7 @@ const Home = () => {
           </button>
           <button
             onClick={() => setShow(2)}
-            className={`btn px-4 py-2 rounded-md tracking-wider font-bold ${
+            className={`btn px-4 py-2 rounded-md tracking-wide font-bold ${
               show === 2 && 'bg-white/25'
             }`}
           >

@@ -29,7 +29,9 @@ const Todo = ({ show }) => {
 
   return (
     <main
-      className={`w-full mt-32 flex flex-col items-center ${show && 'hidden'}`}
+      className={`w-full mt-36 flex flex-col items-center ${
+        show === 1 ? 'block' : 'hidden'
+      }`}
     >
       <form onSubmit={postDataum} className='flex flex-col space-y-5'>
         <input

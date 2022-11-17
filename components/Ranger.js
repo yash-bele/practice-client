@@ -7,7 +7,9 @@ const Ranger = ({ show }) => {
 
   return (
     <main
-      className={`w-full mt-32 flex flex-col items-center ${!show && 'hidden'}`}
+      className={`w-full mt-36 flex flex-col items-center ${
+        show === 2 ? 'block' : 'hidden'
+      }`}
     >
       <form className='flex flex-col space-y-10'>
         <input

@@ -48,7 +48,7 @@ const RPS = ({ show }) => {
           setComputer(null);
           setPlayer(null);
         }
-      }, 1000);
+      }, 100);
     }
   };
 

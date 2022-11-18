@@ -40,8 +40,10 @@ const RPS = ({ show }) => {
         let val1 = ref1.current.textContent.substring(0, 1) * 1;
         let val2 = ref2.current.textContent.substring(0, 1) * 1;
         if (val1 + val2 === round * 1) {
-          if (val1 > val2) toast.error(`You Lose !! Score ${val2}/${round}`);
-          if (val1 < val2) toast.success(`You Won !! Score ${val2}/${round}`);
+          if (val1 > val2)
+            toast.error(`You Lose !! Your Score ${val2}/${round}`);
+          if (val1 < val2)
+            toast.success(`You Won !! Your Score ${val2}/${round}`);
           if (val1 === val2) toast.info(`Match Tie !!`);
           setComputerScore(0);
           setPlayerScore(0);

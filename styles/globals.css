@@ -12,6 +12,8 @@
 }
 
 .btn {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
     font-family: 'Libre Baskerville', serif;
 }
 

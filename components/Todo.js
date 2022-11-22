@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { nanoid } from 'nanoid';
 const url = 'https://practice-server-yash.vercel.app';
 
 const Todo = ({ show }) => {
@@ -12,18 +13,20 @@ const Todo = ({ show }) => {
   };
   useEffect(() => {
     getData();
-  }, [list]);
+  }, []);
 
   const postDataum = async (e) => {
     e.preventDefault();
-    setText('');
     if (!text) return alert('Please enter todo!');
+    const id = nanoid();
+    setText('');
+    setList((prev) => [...prev, { text, id }]);
     await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ text, id }),
     });
   };
 
@@ -52,7 +55,7 @@ const Todo = ({ show }) => {
         {list.map((i) => {
           return (
             <li
-              key={i._id}
+              key={i.id}
               className='w-80 text-start bg-white/20 py-1 px-3 rounded-md tracking-wider'
             >
               {i.text}
